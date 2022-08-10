@@ -1,7 +1,7 @@
 import os 
 from flask import Flask, request, abort, jsonify
 
-from models import setup_db, Question
+from models import setup_db,Question
 
 def create_app(test_config = None ):
     app = Flask(__name__)
@@ -24,6 +24,8 @@ def create_app(test_config = None ):
                                  difficulty = new_difficulty   
                                 )
             questions.insert()
+
+            print(questions)
 
             return jsonify({
                 "success": "True",
